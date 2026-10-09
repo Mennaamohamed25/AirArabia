@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RideTracker.Api/RideTracker.Api.csproj" />
+  <Project Path="RideTracker.Tests/RideTracker.Tests.csproj" />
+</Solution>

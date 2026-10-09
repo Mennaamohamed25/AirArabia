@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-brand-50: #fff1f3;
+  --color-brand-100: #ffe0e5;
+  --color-brand-200: #ffc5cf;
+  --color-brand-500: #f0143c;
+  --color-brand-600: #e4002b;
+  --color-brand-700: #b8001f;
+  --color-brand-800: #8f0019;
+  --color-ink: #1d1d27;
+  --font-sans: "Inter", "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root { color-scheme: light; }
+html[lang="ar"] body { font-family: "Cairo", "Inter", ui-sans-serif, system-ui, sans-serif; }
+body { @apply bg-slate-50 text-ink antialiased; }
+
+@utility card { @apply rounded-3xl bg-white shadow-[0_1px_2px_rgba(16,24,40,.04),0_8px_24px_-12px_rgba(16,24,40,.12)] ring-1 ring-slate-200/70; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none; }
+@utility btn-primary { @apply btn bg-brand-600 text-white shadow-lg shadow-brand-600/25 hover:bg-brand-700; }
+@utility btn-dark { @apply btn bg-ink text-white hover:bg-black; }
+@utility btn-ghost { @apply btn bg-white text-ink ring-1 ring-slate-200 hover:bg-slate-50; }
+@utility btn-danger { @apply btn bg-white text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50; }
+@utility input { @apply w-full rounded-2xl border-0 bg-slate-100 px-4 py-3 text-base outline-none ring-1 ring-transparent transition focus:bg-white focus:ring-2 focus:ring-brand-500; }
+@utility label { @apply mb-1.5 block text-sm font-semibold text-slate-600; }
+@utility tab { @apply rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-ink; }
+@utility tab-active { @apply bg-brand-600 text-white shadow-md shadow-brand-600/25 hover:text-white; }
+
+.leaflet-container { font-family: inherit; }
+@keyframes flash { from { background-color: var(--color-brand-100); } to { background-color: transparent; } }
+.flash-new { animation: flash 3s ease-out; }
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(228,0,43,.45); } 100% { box-shadow: 0 0 0 28px rgba(228,0,43,0); } }
+.pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
+
+/* Brand-coloured checkboxes and radios. */
+input[type="checkbox"], input[type="radio"] { accent-color: var(--color-brand-600); width: 1.1rem; height: 1.1rem; cursor: pointer; }
+
+/* Driver name labels on the live map. */
+.leaflet-tooltip.driver-label {
+  border: 0; border-radius: 9999px; padding: 3px 10px; font-weight: 700; font-size: 12px;
+  color: var(--color-ink); box-shadow: 0 4px 14px rgba(16, 24, 40, .18);
+}
+@keyframes slidein { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
